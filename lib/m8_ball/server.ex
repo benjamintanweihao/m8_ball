@@ -6,7 +6,7 @@ defmodule M8Ball.Server do
   #############
 
   def start_link do
-    :gen_server.start_link({:global, __MODULE__},__MODULE__, [], [])
+    :gen_server.start_link({:global, __MODULE__}, __MODULE__, [], [])
   end
 
   def stop do

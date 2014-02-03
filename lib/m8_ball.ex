@@ -9,6 +9,10 @@ defmodule M8Ball do
     M8Ball.Supervisor.start_link
   end
 
+  def start({:takeover, _other_node}, []) do
+    M8Ball.Supervisor.start_link
+  end
+
   def stop(_state) do
     :ok
   end

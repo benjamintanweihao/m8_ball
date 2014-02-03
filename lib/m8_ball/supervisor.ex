@@ -2,7 +2,7 @@ defmodule M8Ball.Supervisor do
   use Supervisor.Behaviour
 
   def start_link do
-    :supervisor.start_link(__MODULE__, [])
+    :supervisor.start_link({:global, __MODULE__}, __MODULE__, [])
   end
 
   def init([]) do
