@@ -1,4 +1,4 @@
-# Magic 8 Ball :8ball:
+# Magic :8ball Ball
 
 ![Magic 8 Ball](http://learnyousomeerlang.com/static/img/magic-8-ball.png)
 
