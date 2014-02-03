@@ -1,6 +1,6 @@
-# Magic 8 Ball
+# Magic 8 Ball :8ball:
 
-[Magic 8 Ball](http://learnyousomeerlang.com/static/img/magic-8-ball.png)
+![Magic 8 Ball](http://learnyousomeerlang.com/static/img/magic-8-ball.png)
 
 This is a direct port of the Magic 8 Ball application in Learn You Some Erlang.
 
