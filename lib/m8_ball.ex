@@ -1,5 +1,5 @@
 defmodule M8Ball do
-  use Application.Behaviour
+  use Application
 
   #############
   # Callbacks #
@@ -17,9 +17,9 @@ defmodule M8Ball do
     :ok
   end
 
-  #############
-  # Interface #
-  #############
+  #######
+  # API #
+  #######
 
   def ask(question) do
     M8Ball.Server.ask(question)    

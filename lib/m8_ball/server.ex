@@ -1,20 +1,20 @@
 defmodule M8Ball.Server do
-  use GenServer.Behaviour
+  use GenServer
 
-  #############
-  # Interface #
-  #############
+  #######
+  # API #
+  #######
 
   def start_link do
-    :gen_server.start_link({:global, __MODULE__}, __MODULE__, [], [])
+    GenServer.start_link(__MODULE__, [], [name: {:global, __MODULE__}])
   end
 
   def stop do
-    :gen_server.call({:global, __MODULE__}, :stop)
+    GenServer.call({:global, __MODULE__}, :stop)
   end
 
   def ask(_question) do
-    :gen_server.call({:global, __MODULE__}, :question)
+    GenServer.call({:global, __MODULE__}, :ask)
   end
 
   #############
@@ -27,9 +27,8 @@ defmodule M8Ball.Server do
     {:ok, []}
   end
 
-  def handle_call(:question, _from, state) do
-    {:ok, answers} = :application.get_env(:m8_ball, :answers)
-    answer = Enum.shuffle(answers) |> Enum.first
+  def handle_call(:ask, _from, state) do
+    answer = Enum.shuffle(answers) |> List.first
     {:reply, answer, state}
   end
 
@@ -40,5 +39,16 @@ defmodule M8Ball.Server do
   def handle_call(_call, _from, state) do
     {:noreply, state}
   end
-  
+
+  defp answers do
+    [ 
+      "Yes", 
+      "No", 
+      "Doubtful", 
+      "I don't like your tone", 
+      "Of course not", 
+      "*backs away slow and runs away*"
+    ]
+  end
+
 end

@@ -4,29 +4,15 @@ defmodule M8Ball.Mixfile do
   def project do
     [ app: :m8_ball,
       version: "0.0.1",
-      elixir: "~> 0.12.2-dev",
-      deps: deps ]
+      elixir: "~> 1.1",
+      deps: [] ]
   end
 
   # Configuration for the OTP application
   def application do
     [
        mod: { M8Ball, [] },
-       env: [
-              answers: [ 
-                         "Yes", 
-                         "No", 
-                         "Doubtful", 
-                         "I don't like your tone", 
-                         "Of course not", 
-                         "*backs away slow and runs away*"
-                       ]
-
-            ]
     ]
   end
 
-  defp deps do
-    []
-  end
 end

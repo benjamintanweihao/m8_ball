@@ -1,8 +1,8 @@
 defmodule M8Ball.Supervisor do
-  use Supervisor.Behaviour
+  use Supervisor
 
   def start_link do
-    :supervisor.start_link({:global, __MODULE__}, __MODULE__, [])
+    Supervisor.start_link(__MODULE__, [], name: {:global, __MODULE__})
   end
 
   def init([]) do
